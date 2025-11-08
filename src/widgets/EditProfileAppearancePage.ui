@@ -451,6 +451,119 @@
            </property>
           </widget>
          </item>
+         <item row="9" column="0" alignment="Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignVCenter">
+          <widget class="QLabel" name="cursorTrailLabel">
+           <property name="text">
+            <string>Cursor trail:</string>
+           </property>
+           <property name="buddy">
+            <cstring>enableCursorTrailButton</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QCheckBox" name="enableCursorTrailButton">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="toolTip">
+            <string>Show animated trail effect following cursor movement</string>
+           </property>
+           <property name="text">
+            <string>Enabled</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="cursorTrailSpeedLabel">
+           <property name="text">
+            <string>Animation speed:</string>
+           </property>
+           <property name="buddy">
+            <cstring>cursorTrailSpeedSlider</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QSlider" name="cursorTrailSpeedSlider">
+           <property name="toolTip">
+            <string>Speed of cursor trail animation (5 = slow, 20 = fast)</string>
+           </property>
+           <property name="minimum">
+            <number>5</number>
+           </property>
+           <property name="maximum">
+            <number>20</number>
+           </property>
+           <property name="value">
+            <number>10</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="0">
+          <widget class="QLabel" name="cursorTrailFadeLabel">
+           <property name="text">
+            <string>Fade speed:</string>
+           </property>
+           <property name="buddy">
+            <cstring>cursorTrailFadeSlider</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1">
+          <widget class="QSlider" name="cursorTrailFadeSlider">
+           <property name="toolTip">
+            <string>Speed of trail fade out (5 = slow, 50 = fast)</string>
+           </property>
+           <property name="minimum">
+            <number>5</number>
+           </property>
+           <property name="maximum">
+            <number>50</number>
+           </property>
+           <property name="value">
+            <number>15</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="cursorTrailWidthLabel">
+           <property name="text">
+            <string>Trail width:</string>
+           </property>
+           <property name="buddy">
+            <cstring>cursorTrailWidthSlider</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="1">
+          <widget class="QSlider" name="cursorTrailWidthSlider">
+           <property name="toolTip">
+            <string>Width of the trail (10 = thin, 50 = thick)</string>
+           </property>
+           <property name="minimum">
+            <number>10</number>
+           </property>
+           <property name="maximum">
+            <number>50</number>
+           </property>
+           <property name="value">
+            <number>40</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item row="1" column="0" colspan="2">

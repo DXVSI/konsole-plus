@@ -87,6 +87,8 @@ private:
     void updateCursorTextColor(const QColor &backgroundColor, QColor &characterColor);
     // draws the cursor character
     void drawCursor(QPainter &painter, const QRectF &cursorRect, const QColor &foregroundColor, const QColor &backgroundColor, QColor &characterColor);
+    // draws the cursor trail effect
+    void drawCursorTrail(QPainter &painter);
 
     TerminalDisplay *m_parentDisplay = nullptr;
     void drawBelowText(QPainter &painter,

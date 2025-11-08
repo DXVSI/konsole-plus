@@ -12,6 +12,7 @@
 #include <QColor>
 #include <QPointer>
 #include <QWidget>
+#include <QElapsedTimer>
 
 #include <memory>
 
@@ -51,6 +52,7 @@ class TerminalPainter;
 class TerminalScrollBar;
 class TerminalColor;
 class TerminalFont;
+class CursorTrail;
 
 class KonsolePrintManager;
 
@@ -314,6 +316,11 @@ public:
     TerminalFont *terminalFont() const
     {
         return _terminalFont.get();
+    }
+
+    CursorTrail *cursorTrail() const
+    {
+        return _cursorTrail.get();
     }
 
     /**
@@ -626,6 +633,9 @@ private:
     // redraws the cursor
     void updateCursor();
 
+    // updates cursor trail animation
+    void updateCursorTrail();
+
     bool handleShortcutOverrideEvent(QKeyEvent *keyEvent);
 
     void doPaste(QString text, bool appendReturn);
@@ -818,6 +828,9 @@ private:
     TerminalScrollBar *_scrollBar = nullptr;
     TerminalColor *_terminalColor = nullptr;
     std::unique_ptr<TerminalFont> _terminalFont;
+    std::unique_ptr<CursorTrail> _cursorTrail;
+    QTimer *_cursorTrailTimer = nullptr;
+    QElapsedTimer _cursorTrailElapsedTimer;
 
     std::unique_ptr<KonsolePrintManager> _printManager;
 

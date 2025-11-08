@@ -207,6 +207,16 @@ public:
          * property is true and CursorShape property is Enum::BlockCursor.
          */
         CustomCursorTextColor,
+        /** (bool) Specifies whether the cursor trail effect is enabled.
+         * When enabled, a trailing animation follows the cursor movement.
+         */
+        CursorTrailEnabled,
+        /** (double) Speed of cursor trail animation (5.0 = slow, 20.0 = fast) */
+        CursorTrailAnimationSpeed,
+        /** (double) Speed of trail fade out (0.5 = slow, 5.0 = fast) */
+        CursorTrailFadeSpeed,
+        /** (double) Trail width multiplier (0.1 = thin, 0.5 = thick) */
+        CursorTrailWidth,
         /** (QString) A string consisting of the characters used to delimit
          * words when selecting text in the terminal display.
          */
@@ -727,6 +737,30 @@ public:
     bool blinkingCursorEnabled() const
     {
         return property<bool>(Profile::BlinkingCursorEnabled);
+    }
+
+    /** Convenience method for property<bool>(Profile::CursorTrailEnabled) */
+    bool cursorTrailEnabled() const
+    {
+        return property<bool>(Profile::CursorTrailEnabled);
+    }
+
+    /** Convenience method for property<double>(Profile::CursorTrailAnimationSpeed) */
+    double cursorTrailAnimationSpeed() const
+    {
+        return property<double>(Profile::CursorTrailAnimationSpeed);
+    }
+
+    /** Convenience method for property<double>(Profile::CursorTrailFadeSpeed) */
+    double cursorTrailFadeSpeed() const
+    {
+        return property<double>(Profile::CursorTrailFadeSpeed);
+    }
+
+    /** Convenience method for property<double>(Profile::CursorTrailWidth) */
+    double cursorTrailWidth() const
+    {
+        return property<double>(Profile::CursorTrailWidth);
     }
 
     /** Convenience method for property<bool>(Profile::FlowControlEnabled) */

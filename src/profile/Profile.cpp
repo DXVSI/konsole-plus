@@ -149,6 +149,10 @@ const std::vector<Profile::PropertyInfo> Profile::DefaultProperties = {
     {CursorShape, "CursorShape", CURSOR_GROUP, Enum::BlockCursor},
     {CustomCursorColor, "CustomCursorColor", CURSOR_GROUP, QColor(Qt::white)},
     {CustomCursorTextColor, "CustomCursorTextColor", CURSOR_GROUP, QColor(Qt::black)},
+    {CursorTrailEnabled, "CursorTrailEnabled", CURSOR_GROUP, false},
+    {CursorTrailAnimationSpeed, "CursorTrailAnimationSpeed", CURSOR_GROUP, 10.0},
+    {CursorTrailFadeSpeed, "CursorTrailFadeSpeed", CURSOR_GROUP, 1.5},
+    {CursorTrailWidth, "CursorTrailWidth", CURSOR_GROUP, 0.4},
 
     // Interaction
     {WordCharacters, "WordCharacters", INTERACTION_GROUP, QLatin1String(":@-./_~?&=%+#")},

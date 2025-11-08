@@ -73,6 +73,7 @@
 #include "TerminalFonts.h"
 #include "TerminalPainter.h"
 #include "TerminalScrollBar.h"
+#include "CursorTrail.h"
 
 #include "unicode/ubidi.h"
 #include "unicode/uchar.h"
@@ -216,6 +217,7 @@ TerminalDisplay::TerminalDisplay(QWidget *parent)
     , _searchBar(new IncrementalSearchBar(this))
     , _headerBar(new TerminalHeaderBar(this))
     , _terminalFont(std::make_unique<TerminalFont>(this))
+    , _cursorTrail(std::make_unique<CursorTrail>())
     , _id(++lastViewId)
 {
     // terminal applications are not designed with Right-To-Left in mind,
@@ -313,6 +315,12 @@ TerminalDisplay::TerminalDisplay(QWidget *parent)
     connect(_terminalColor, &TerminalColor::onPalette, _scrollBar, &TerminalScrollBar::updatePalette);
 
     _terminalPainter = new TerminalPainter(this);
+
+    // Setup cursor trail animation timer
+    _cursorTrailTimer = new QTimer(this);
+    _cursorTrailTimer->setInterval(16); // ~60 FPS
+    connect(_cursorTrailTimer, &QTimer::timeout, this, &TerminalDisplay::updateCursorTrail);
+    _cursorTrailElapsedTimer.start();
 
     auto ldrawBackground = [this](QPainter &painter, const QRect &rect, const QColor &backgroundColor, bool useOpacitySetting) {
         _terminalPainter->drawBackground(painter, rect, backgroundColor, useOpacitySetting);
@@ -935,6 +943,46 @@ void TerminalDisplay::updateCursor()
     int charWidth = _image[cursorLocation].width();
     QRect cursorRect = imageToWidget(highdpi_adjust_rect(QRect(_visualCursorPosition, QSize(charWidth, 1))));
     update(cursorRect);
+}
+
+void TerminalDisplay::updateCursorTrail()
+{
+    if (!_cursorTrail || !_sessionController || _sessionController->session().isNull()) {
+        return;
+    }
+
+    auto profile = SessionManager::instance()->sessionProfile(_sessionController->session());
+    if (!profile || !profile->cursorTrailEnabled()) {
+        return;
+    }
+
+    if (!isCursorOnDisplay()) {
+        return;
+    }
+
+    // Get cursor rect
+    const int cursorLocation = loc(cursorPosition().x(), cursorPosition().y());
+    if (cursorLocation >= _imageSize) {
+        return;
+    }
+
+    // Get cursor character width
+    int charColumns = _image[cursorLocation].width();
+    if (charColumns <= 0) charColumns = 1;
+
+    // Get the actual cursor rectangle in widget coordinates
+    // This should match what's used in drawCursor
+    QRect charRect = QRect(_visualCursorPosition, QSize(charColumns, 1));
+    QRect widgetCursorRect = imageToWidget(highdpi_adjust_rect(charRect));
+    QRectF cursorRect(widgetCursorRect);
+
+    // Update trail animation
+    _cursorTrail->update(cursorRect, _cursorTrailElapsedTimer.elapsed());
+
+    // Trigger repaint if trail needs rendering
+    if (_cursorTrail->needsRender()) {
+        update();
+    }
 }
 
 /* ------------------------------------------------------------------------- */
@@ -3154,6 +3202,26 @@ void TerminalDisplay::applyProfile(const Profile::Ptr &profile)
 
     // cursor shape
     setKeyboardCursorShape(Enum::CursorShapeEnum(profile->property<int>(Profile::CursorShape)));
+
+    // cursor trail
+    if (profile->cursorTrailEnabled()) {
+        // Apply trail configuration from profile
+        if (_cursorTrail) {
+            _cursorTrail->setAnimationSpeed(profile->cursorTrailAnimationSpeed());
+            _cursorTrail->setFadeSpeed(profile->cursorTrailFadeSpeed());
+            _cursorTrail->setTrailWidth(profile->cursorTrailWidth());
+        }
+        if (!_cursorTrailTimer->isActive()) {
+            _cursorTrailTimer->start();
+        }
+    } else {
+        if (_cursorTrailTimer->isActive()) {
+            _cursorTrailTimer->stop();
+        }
+        if (_cursorTrail) {
+            _cursorTrail->reset();
+        }
+    }
 
     // word characters
     setWordCharacters(profile->wordCharacters());

@@ -876,6 +876,19 @@ void EditProfileDialog::setupAppearancePage(const Profile::Ptr &profile)
     _appearanceUi->enableBlinkingCursorButton->setChecked(profile->property<bool>(Profile::BlinkingCursorEnabled));
     connect(_appearanceUi->enableBlinkingCursorButton, &QToolButton::toggled, this, &EditProfileDialog::toggleBlinkingCursor);
 
+    _appearanceUi->enableCursorTrailButton->setChecked(profile->property<bool>(Profile::CursorTrailEnabled));
+    connect(_appearanceUi->enableCursorTrailButton, &QCheckBox::toggled, this, &EditProfileDialog::toggleCursorTrail);
+
+    // Cursor trail sliders
+    _appearanceUi->cursorTrailSpeedSlider->setValue(static_cast<int>(profile->cursorTrailAnimationSpeed()));
+    connect(_appearanceUi->cursorTrailSpeedSlider, &QSlider::valueChanged, this, &EditProfileDialog::setCursorTrailSpeed);
+
+    _appearanceUi->cursorTrailFadeSlider->setValue(static_cast<int>(profile->cursorTrailFadeSpeed() * 10)); // Scale to 0-50
+    connect(_appearanceUi->cursorTrailFadeSlider, &QSlider::valueChanged, this, &EditProfileDialog::setCursorTrailFadeSpeed);
+
+    _appearanceUi->cursorTrailWidthSlider->setValue(static_cast<int>(profile->cursorTrailWidth() * 100)); // Scale to 10-50
+    connect(_appearanceUi->cursorTrailWidthSlider, &QSlider::valueChanged, this, &EditProfileDialog::setCursorTrailWidth);
+
     if (profile->useCustomCursorColor()) {
         _appearanceUi->customCursorColorButton->setChecked(true);
     } else {
@@ -1030,6 +1043,33 @@ void EditProfileDialog::toggleBlinkingCursor(bool enable)
 {
     preview(Profile::BlinkingCursorEnabled, enable);
     updateTempProfileProperty(Profile::BlinkingCursorEnabled, enable);
+}
+
+void EditProfileDialog::toggleCursorTrail(bool enable)
+{
+    preview(Profile::CursorTrailEnabled, enable);
+    updateTempProfileProperty(Profile::CursorTrailEnabled, enable);
+}
+
+void EditProfileDialog::setCursorTrailSpeed(int value)
+{
+    double speed = static_cast<double>(value);
+    preview(Profile::CursorTrailAnimationSpeed, speed);
+    updateTempProfileProperty(Profile::CursorTrailAnimationSpeed, speed);
+}
+
+void EditProfileDialog::setCursorTrailFadeSpeed(int value)
+{
+    double speed = static_cast<double>(value) / 10.0; // Scale back from 0-50 to 0.0-5.0
+    preview(Profile::CursorTrailFadeSpeed, speed);
+    updateTempProfileProperty(Profile::CursorTrailFadeSpeed, speed);
+}
+
+void EditProfileDialog::setCursorTrailWidth(int value)
+{
+    double width = static_cast<double>(value) / 100.0; // Scale back from 10-50 to 0.1-0.5
+    preview(Profile::CursorTrailWidth, width);
+    updateTempProfileProperty(Profile::CursorTrailWidth, width);
 }
 
 void EditProfileDialog::setCursorShape(int index)

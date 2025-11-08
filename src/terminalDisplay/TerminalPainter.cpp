@@ -14,9 +14,11 @@
 #include "../characters/LineBlockCharacters.h"
 #include "../filterHotSpots/FilterChain.h"
 #include "../session/SessionManager.h"
+#include "../session/SessionController.h"
 #include "TerminalColor.h"
 #include "TerminalFonts.h"
 #include "TerminalScrollBar.h"
+#include "CursorTrail.h"
 
 // Qt
 #include <QChar>
@@ -26,6 +28,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QPen>
+#include <QPolygonF>
 #include <QRect>
 #include <QRegion>
 #include <QString>
@@ -217,6 +220,15 @@ void TerminalPainter::drawContents(Character *image,
     paint.setLayoutDirection(Qt::LeftToRight);
     const QColor *colorTable = m_parentDisplay->terminalColor()->colorTable();
 
+    // Draw cursor trail before text/cursor so they appear as one
+    if (!printerFriendly && m_parentDisplay->sessionController() &&
+        !m_parentDisplay->sessionController()->session().isNull()) {
+        auto profile = SessionManager::instance()->sessionProfile(m_parentDisplay->sessionController()->session());
+        if (profile && profile->cursorTrailEnabled()) {
+            drawCursorTrail(paint);
+        }
+    }
+
     for (int y = rect.y(); y <= rect.bottom(); y++) {
         int pos = m_parentDisplay->loc(0, y);
         if (pos > imageSize) {
@@ -358,8 +370,9 @@ void TerminalPainter::drawContents(Character *image,
                             }
                         }
                     }
+                    QRectF cursorRect(textScale.inverted().map(QPoint(textX, textY)), QSize(textWidth, textHeight));
                     drawCursor(paint,
-                               QRect(textScale.inverted().map(QPoint(textX, textY)), QSize(textWidth, textHeight)),
+                               cursorRect,
                                foregroundColor,
                                backgroundColor,
                                foregroundColor);
@@ -1181,5 +1194,43 @@ void TerminalPainter::drawTextCharacters(QPainter &painter,
     if (restoreFont) {
         painter.setFont(savedFont);
     }
+}
+
+void TerminalPainter::drawCursorTrail(QPainter &painter)
+{
+    if (!m_parentDisplay->cursorTrail()) {
+        return;
+    }
+
+    CursorTrail *trail = m_parentDisplay->cursorTrail();
+    if (!trail->needsRender()) {
+        return;
+    }
+
+    const qreal opacity = trail->opacity();
+
+    if (opacity <= 0.01) {
+        return;
+    }
+
+    QColor trailColor = m_parentDisplay->terminalColor()->cursorColor();
+    if (!trailColor.isValid()) {
+        trailColor = m_parentDisplay->terminalColor()->colorTable()[DEFAULT_FORE_COLOR];
+    }
+
+    // Higher opacity for more visible trail
+    trailColor.setAlphaF(opacity * 0.5);
+
+    painter.save();
+    painter.setRenderHint(QPainter::Antialiasing, true);
+
+    // Get trail polygon
+    QPolygonF polygon = trail->trailPolygon();
+
+    // Draw trail as filled polygon
+    QPainterPath path;
+    path.addPolygon(polygon);
+    painter.fillPath(path, trailColor);
+    painter.restore();
 }
 }

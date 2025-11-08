@@ -214,6 +214,7 @@ set(konsoleprivate_SRCS ${windowadaptors_SRCS}
                         terminalDisplay/TerminalColor.cpp
                         terminalDisplay/TerminalFonts.cpp
                         terminalDisplay/TerminalBell.cpp
+                        terminalDisplay/CursorTrail.cpp
 
                         profile/Profile.cpp
                         profile/ProfileCommandParser.cpp
