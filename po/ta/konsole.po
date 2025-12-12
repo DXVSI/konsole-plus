@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: konsole\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-24 00:46+0000\n"
-"PO-Revision-Date: 2025-09-28 15:23+0530\n"
+"POT-Creation-Date: 2025-11-27 00:46+0000\n"
+"PO-Revision-Date: 2025-11-30 11:32+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1860,14 +1860,14 @@ msgstr "வெளியீட்டுக்கான விருப்பங�
 
 #. i18n: ectx: property (text), widget (QCheckBox, printerFriendly)
 #. i18n: ectx: label, entry (PrinterFriendly), group (PrintOptions)
-#: PrintOptions.ui:39 settings/konsole.kcfg:195
+#: PrintOptions.ui:39 settings/konsole.kcfg:200
 #, kde-format
 msgid "Printer &friendly mode (black text, no background)"
 msgstr "&அச்சடிப்பதற்குரிய பயன்முறை (கருப்பு எழுத்துகள், பின்புலம் இல்லாமல்)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, scaleOutput)
 #. i18n: ectx: label, entry (ScaleOutput), group (PrintOptions)
-#: PrintOptions.ui:46 settings/konsole.kcfg:199
+#: PrintOptions.ui:46 settings/konsole.kcfg:204
 #, kde-format
 msgid "&Scale output"
 msgstr "&வெளியீட்டின் அளவை மாற்று"
@@ -2517,24 +2517,19 @@ msgstr ""
 "<p> 'rzsz' அல்லது 'lrzsz' தொகுப்பை வேண்டுமானால் நிறுவலாம்.\n"
 
 #: session/SessionController.cpp:2203
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>The current session already has a ZModem file transfer in progress."
+#, kde-format
 msgid ""
 "<p>The current session already has a ZModem file transfer in progress.</p>"
-msgstr "<பி>நடப்பு அமர்வில் ஏற்கனவே உள்ள Z மோடம் கோப்பு இடமாற்றம் நடைமுறையில் உள்ளது."
+msgstr "<p>தற்போதயை அமர்வில் ஏற்கனவே ZModem மூலமான கோப்பு இடமாற்றம் நடைபெறுகிறது.</p>"
 
 #: session/SessionController.cpp:2216
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>No suitable ZModem software was found on the system.\n"
-#| "<p>You may wish to install the 'rzsz' or 'lrzsz' package.\n"
+#, kde-format
 msgid ""
 "<p>No suitable ZModem software was found on this system.</p><p>You may wish "
 "to install the 'rzsz' or 'lrzsz' package.</p>"
 msgstr ""
-"<p>பொருத்தமான Z மோடம் மென்பொருள் அமைப்பு கிடைக்கவில்லை.\n"
-" <p>'rzsz' அல்லது 'lrzsz '  தொகுப்பு வேண்டுமானால் நிறுவலாம்.\n"
+"<p>எந்த ZModem நிரலும் கண்டுபிடிக்கப்படவில்லை.</p><p>'rzsz' அல்லது 'lrzsz' போன்ற "
+"நிரல்களை நிறுவ வேண்டியிருக்கலாம்.</p>"
 
 #: session/SessionController.cpp:2221
 #, kde-format
@@ -2561,56 +2556,100 @@ msgstr "அமைப்புகள்"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_SearchReverseSearch)
 #. i18n: ectx: tooltip, entry (SearchReverseSearch), group (SearchSettings)
-#: settings/GeneralSettings.ui:49 settings/konsole.kcfg:84
+#: settings/GeneralSettings.ui:49 settings/konsole.kcfg:89
 #, kde-format
 msgid "Sets whether search should start from the bottom"
 msgstr "தேடல் கீழிலிருந்து துவங்க வேண்டுமா என்பதை அமைக்கும்"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SearchReverseSearch)
 #. i18n: ectx: label, entry (SearchReverseSearch), group (SearchSettings)
-#: settings/GeneralSettings.ui:52 settings/konsole.kcfg:83
+#: settings/GeneralSettings.ui:52 settings/konsole.kcfg:88
 #, kde-format
 msgid "Search backwards"
 msgstr "பின்னோக்கித் தேடு"
 
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_EnableSecuritySensitiveDBusAPI)
-#. i18n: ectx: label, entry (EnableSecuritySensitiveDBusAPI), group (KonsoleWindow)
-#: settings/GeneralSettings.ui:59 settings/konsole.kcfg:37
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: settings/GeneralSettings.ui:59
 #, kde-format
-msgid "Enable the security sensitive parts of the DBus API"
-msgstr "பாதுகாப்பை பாதிக்கக்கூடிய DBus நெறிமுறையின் பகுதியை இயக்கு"
+msgid "Notifications:"
+msgstr "அறிவிப்புகள்:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
+#. i18n: ectx: label, entry (FocusFollowsMouse), group (KonsoleWindow)
+#: settings/GeneralSettings.ui:66 settings/konsole.kcfg:13
+#, kde-format
+msgid "Focus terminals when the mouse pointer is moved over them"
+msgstr "முனையங்களின் மீது சுட்டிக்குறியை வைக்கும்போது அவற்றை குவியப்படுத்து"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AllowMenuAccelerators)
+#. i18n: ectx: label, entry (AllowMenuAccelerators), group (KonsoleWindow)
+#: settings/GeneralSettings.ui:79 settings/konsole.kcfg:22
+#, kde-format
+msgid "Enable menu accelerators"
+msgstr "பட்டிகளில் விரைவுப்படுத்திகளை இயக்கு"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: settings/GeneralSettings.ui:66
+#: settings/GeneralSettings.ui:86
 #, kde-format
 msgctxt "@item:intext Search options"
 msgid "Search:"
 msgstr "தேடல்:"
 
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SearchRegExpression)
-#. i18n: ectx: label, entry (SearchRegExpression), group (SearchSettings)
-#: settings/GeneralSettings.ui:79 settings/konsole.kcfg:74
-#, kde-format
-msgid "Match using regular expressions"
-msgstr "சுருங்குறித் தொடர்களைக் கொண்டு பொருத்து"
-
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RemoveWindowTitleBarAndFrame)
 #. i18n: ectx: label, entry (RemoveWindowTitleBarAndFrame), group (KonsoleWindow)
-#: settings/GeneralSettings.ui:86 settings/konsole.kcfg:9
+#: settings/GeneralSettings.ui:93 settings/konsole.kcfg:9
 #, kde-format
 msgid "Remove window titlebar and frame"
 msgstr "சாளரத்தின் தலைப்புப்பட்டையையும் விளிம்பையும் நீக்கு"
 
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_AllowMenuAccelerators)
-#. i18n: ectx: label, entry (AllowMenuAccelerators), group (KonsoleWindow)
-#: settings/GeneralSettings.ui:99 settings/konsole.kcfg:22
+#. i18n: ectx: property (toolTip), widget (QPushButton, enableAllMessagesButton)
+#: settings/GeneralSettings.ui:111
 #, kde-format
-msgid "Enable menu accelerators"
-msgstr "பட்டிகளில் விரைவுப்படுத்திகளை இயக்கு"
+msgid "All dialogs will be shown again"
+msgstr "அனைத்து சாளரங்களும் தேவைப்படும்போது மறுபடியும் காட்டப்படும்"
+
+#. i18n: ectx: property (text), widget (QPushButton, enableAllMessagesButton)
+#: settings/GeneralSettings.ui:114
+#, kde-format
+msgid "Enable all \"Don't Ask Again\" messages"
+msgstr "\"மறுபடியும் கேட்காதே\" என்று மறைத்த அனைத்து எச்சரிக்கைகளையும் காட்டு"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SearchHighlightMatches)
+#: settings/GeneralSettings.ui:142
+#, kde-format
+msgid "Highlight all matches"
+msgstr "பொருந்தும் அனைத்தை முன்னிலைப்படுத்து"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowWindowTitleOnTitleBar)
+#. i18n: ectx: label, entry (ShowWindowTitleOnTitleBar), group (KonsoleWindow)
+#: settings/GeneralSettings.ui:155 settings/konsole.kcfg:17
+#, kde-format
+msgid "Show window title on the titlebar"
+msgstr "சாளரத்தலைப்பை தலைப்புப்பட்டையில் காட்டு"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_SearchNoWrap)
+#. i18n: ectx: tooltip, entry (SearchNoWrap), group (SearchSettings)
+#: settings/GeneralSettings.ui:168 settings/konsole.kcfg:94
+#, kde-format
+msgid "Sets whether search should stop instead of wrapping"
+msgstr ""
+"கீழ் மற்றும் மேல் எல்லைகளில் தேடல் சுழல வேண்டுமா அல்லது நிற்க வேண்டுமா என்பதை அமைக்கும்"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SearchNoWrap)
+#: settings/GeneralSettings.ui:171
+#, kde-format
+msgid "No wrap"
+msgstr "சுழலாதே"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: settings/GeneralSettings.ui:194
+#, kde-format
+msgid "Process and window:"
+msgstr "சாளரமும் ஒன்றாக்கமும்"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_UseSingleInstance)
 #. i18n: ectx: tooltip, entry (UseSingleInstance), group (KonsoleWindow)
-#: settings/GeneralSettings.ui:112 settings/konsole.kcfg:33
+#: settings/GeneralSettings.ui:210 settings/konsole.kcfg:33
 #, kde-format
 msgid "When launching Konsole re-use existing process if possible"
 msgstr ""
@@ -2618,93 +2657,55 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_UseSingleInstance)
 #. i18n: ectx: label, entry (UseSingleInstance), group (KonsoleWindow)
-#: settings/GeneralSettings.ui:115 settings/konsole.kcfg:32
+#: settings/GeneralSettings.ui:213 settings/konsole.kcfg:32
 #, kde-format
 msgid "Run all Konsole windows in a single process"
 msgstr "அனைத்து கான்சோல் சாளரங்களும் ஒரே பணியில் இருக்கட்டும்"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_RememberWindowSize)
-#: settings/GeneralSettings.ui:128
+#: settings/GeneralSettings.ui:226
 #, kde-format
 msgid "If enabled, profile settings will be ignored"
 msgstr "இது இயக்கப்படால், தனிப்பட்ட பயன்முறைகளுக்குரிய அமைப்புகள் பொருட்படுத்தப்படா"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_RememberWindowSize)
-#: settings/GeneralSettings.ui:131
+#: settings/GeneralSettings.ui:229
 #, kde-format
 msgid "Remember window size"
 msgstr "சாளரத்தின் அளவை நினைவில் கொள்"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: settings/GeneralSettings.ui:138
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_EnableSecuritySensitiveDBusAPI)
+#. i18n: ectx: label, entry (EnableSecuritySensitiveDBusAPI), group (KonsoleWindow)
+#: settings/GeneralSettings.ui:236 settings/konsole.kcfg:37
 #, kde-format
-msgid "Notifications:"
-msgstr "அறிவிப்புகள்:"
-
-#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_SearchNoWrap)
-#. i18n: ectx: tooltip, entry (SearchNoWrap), group (SearchSettings)
-#: settings/GeneralSettings.ui:151 settings/konsole.kcfg:89
-#, kde-format
-msgid "Sets whether search should stop instead of wrapping"
-msgstr ""
-"கீழ் மற்றும் மேல் எல்லைகளில் தேடல் சுழல வேண்டுமா அல்லது நிற்க வேண்டுமா என்பதை அமைக்கும்"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SearchNoWrap)
-#: settings/GeneralSettings.ui:154
-#, kde-format
-msgid "No wrap"
-msgstr "சுழலாதே"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ShowWindowTitleOnTitleBar)
-#. i18n: ectx: label, entry (ShowWindowTitleOnTitleBar), group (KonsoleWindow)
-#: settings/GeneralSettings.ui:167 settings/konsole.kcfg:17
-#, kde-format
-msgid "Show window title on the titlebar"
-msgstr "சாளரத்தலைப்பை தலைப்புப்பட்டையில் காட்டு"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_FocusFollowsMouse)
-#. i18n: ectx: label, entry (FocusFollowsMouse), group (KonsoleWindow)
-#: settings/GeneralSettings.ui:174 settings/konsole.kcfg:13
-#, kde-format
-msgid "Focus terminals when the mouse pointer is moved over them"
-msgstr "முனையங்களின் மீது சுட்டிக்குறியை வைக்கும்போது அவற்றை குவியப்படுத்து"
+msgid "Enable the security sensitive parts of the DBus API"
+msgstr "பாதுகாப்பை பாதிக்கக்கூடிய DBus நெறிமுறையின் பகுதியை இயக்கு"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_SearchCaseSensitive)
 #. i18n: ectx: tooltip, entry (SearchCaseSensitive), group (SearchSettings)
-#: settings/GeneralSettings.ui:187 settings/konsole.kcfg:70
+#: settings/GeneralSettings.ui:265 settings/konsole.kcfg:75
 #, kde-format
 msgid "Sets whether the search is case sensitive"
 msgstr "பெரிய/சிறிய எழுத்துவகையை தேடல் வேறுபடுத்துமா என்பதை அமைக்கும்"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_SearchCaseSensitive)
-#: settings/GeneralSettings.ui:190
+#: settings/GeneralSettings.ui:268
 #, kde-format
 msgid "Case sensitive"
 msgstr "எழுத்து வகையை (பெரிது/சிறிது) பொருட்படுத்து"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: settings/GeneralSettings.ui:197
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SearchRegExpression)
+#. i18n: ectx: label, entry (SearchRegExpression), group (SearchSettings)
+#: settings/GeneralSettings.ui:281 settings/konsole.kcfg:79
 #, kde-format
-msgid "Process and window:"
-msgstr "சாளரமும் ஒன்றாக்கமும்"
+msgid "Match using regular expressions"
+msgstr "சுருங்குறித் தொடர்களைக் கொண்டு பொருத்து"
 
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_SearchHighlightMatches)
-#: settings/GeneralSettings.ui:213
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ListenForZModemTerminalCodes)
+#: settings/GeneralSettings.ui:288
 #, kde-format
-msgid "Highlight all matches"
-msgstr "பொருந்தும் அனைத்தை முன்னிலைப்படுத்து"
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, enableAllMessagesButton)
-#: settings/GeneralSettings.ui:231
-#, kde-format
-msgid "All dialogs will be shown again"
-msgstr "அனைத்து சாளரங்களும் தேவைப்படும்போது மறுபடியும் காட்டப்படும்"
-
-#. i18n: ectx: property (text), widget (QPushButton, enableAllMessagesButton)
-#: settings/GeneralSettings.ui:234
-#, kde-format
-msgid "Enable all \"Don't Ask Again\" messages"
-msgstr "\"மறுபடியும் கேட்காதே\" என்று மறைத்த அனைத்து எச்சரிக்கைகளையும் காட்டு"
+msgid "Listen for ZModem terminal codes"
+msgstr "ZModem முனையக் குறிகளை கையாள்"
 
 #. i18n: ectx: tooltip, entry (ShowWindowTitleOnTitleBar), group (KonsoleWindow)
 #: settings/konsole.kcfg:18
@@ -2736,71 +2737,83 @@ msgstr "கான்சோலிலிருந்து வெளியேற�
 msgid "DBus API like runCommand will be enabled"
 msgstr "runCommand போன்ற DBus நெறிமுறைகள் இயக்கப்படும்"
 
+#. i18n: ectx: label, entry (ListenForZModemTerminalCodes), group (KonsoleWindow)
+#: settings/konsole.kcfg:42
+#, kde-format
+msgid "Listen for ZModem Terminal codes"
+msgstr "ZModem முனையக் குறிகளை கையாள்"
+
+#. i18n: ectx: tooltip, entry (ListenForZModemTerminalCodes), group (KonsoleWindow)
+#: settings/konsole.kcfg:43
+#, kde-format
+msgid "Automatic send/receive files over serial connections"
+msgstr ""
+
 #. i18n: ectx: label, entry (ThumbnailSize), group (ThumbnailsSettings)
-#: settings/konsole.kcfg:47
+#: settings/konsole.kcfg:52
 #, kde-format
 msgid "Thumbnail Width"
 msgstr "சிறுபடத்தின் அகலம்"
 
 #. i18n: ectx: tooltip, entry (ThumbnailSize), group (ThumbnailsSettings)
-#: settings/konsole.kcfg:48
+#: settings/konsole.kcfg:53
 #, kde-format
 msgid "Sets the width of the thumbnail"
 msgstr "சிறுபடத்தின் அகலத்தை அமைக்கும்"
 
 #. i18n: ectx: label, entry (ThumbnailShift), group (ThumbnailsSettings)
 #. i18n: ectx: tooltip, entry (ThumbnailShift), group (ThumbnailsSettings)
-#: settings/konsole.kcfg:52 settings/konsole.kcfg:53
+#: settings/konsole.kcfg:57 settings/konsole.kcfg:58
 #, kde-format
 msgid "Use Shift to display a thumbnail"
 msgstr "சிறுபடத்தை காட்ட shift-ஐப் பயன்படுத்து"
 
 #. i18n: ectx: label, entry (ThumbnailAlt), group (ThumbnailsSettings)
 #. i18n: ectx: tooltip, entry (ThumbnailAlt), group (ThumbnailsSettings)
-#: settings/konsole.kcfg:57 settings/konsole.kcfg:58
+#: settings/konsole.kcfg:62 settings/konsole.kcfg:63
 #, kde-format
 msgid "Use Alt to display a thumbnail"
 msgstr "சிறுபடத்தை காட்ட alt-ஐப் பயன்படுத்து"
 
 #. i18n: ectx: label, entry (ThumbnailCtrl), group (ThumbnailsSettings)
 #. i18n: ectx: tooltip, entry (ThumbnailCtrl), group (ThumbnailsSettings)
-#: settings/konsole.kcfg:62 settings/konsole.kcfg:63
+#: settings/konsole.kcfg:67 settings/konsole.kcfg:68
 #, kde-format
 msgid "Use Ctrl to display a thumbnail"
 msgstr "சிறுபடத்தை காட்ட ctrl-ஐப் பயன்படுத்து"
 
 #. i18n: ectx: label, entry (SearchCaseSensitive), group (SearchSettings)
-#: settings/konsole.kcfg:69
+#: settings/konsole.kcfg:74
 #, kde-format
 msgid "Search is case sensitive"
 msgstr "பெரிய/சிறிய எழுத்துவகையை தேடல் வேறுபடுத்தும்"
 
 #. i18n: ectx: label, entry (SearchHighlightMatches), group (SearchSettings)
-#: settings/konsole.kcfg:78
+#: settings/konsole.kcfg:83
 #, kde-format
 msgid "Highlight all search matches"
 msgstr "பொருந்தும் அனைத்தை முன்னிலைப்படுத்து"
 
 #. i18n: ectx: tooltip, entry (SearchHighlightMatches), group (SearchSettings)
-#: settings/konsole.kcfg:79
+#: settings/konsole.kcfg:84
 #, kde-format
 msgid "Sets whether matching text should be highlighted"
 msgstr "பொருந்தும் உரை முன்னிலைப்படுத்தப்பட வேண்டுமா என்பதை அமைக்கும்"
 
 #. i18n: ectx: label, entry (SearchNoWrap), group (SearchSettings)
-#: settings/konsole.kcfg:88
+#: settings/konsole.kcfg:93
 #, kde-format
 msgid "Search stops instead of wrapping"
 msgstr "தேடல் சுழலாமல் நிற்கும்"
 
 #. i18n: ectx: label, entry (EnableMemoryMonitoring), group (MemorySettings)
-#: settings/konsole.kcfg:95
+#: settings/konsole.kcfg:100
 #, kde-format
 msgid "Control whether child cgroups are created for individual tabs"
 msgstr "கீற்றுகளை தனித்தனி cgroup-களில் உருவாக்க வேண்டுமா"
 
 #. i18n: ectx: label, entry (MemoryLimitValue), group (MemorySettings)
-#: settings/konsole.kcfg:99
+#: settings/konsole.kcfg:104
 #, kde-format
 msgid ""
 "Determines the memory consumption level above which throttling will start"
@@ -2808,97 +2821,97 @@ msgstr "எவ்வளவு நினைவுக்கு மேல் பய
 
 #. i18n: ectx: label, entry (SplitViewVisibility), group (SplitView)
 #. i18n: ectx: label, entry (TabBarVisibility), group (TabBar)
-#: settings/konsole.kcfg:105 settings/konsole.kcfg:125
+#: settings/konsole.kcfg:110 settings/konsole.kcfg:130
 #, kde-format
 msgid "Control the visibility of the whole tab bar"
 msgstr "கீற்றுப்பட்டை காட்டப்படுவதை கட்டுப்படுத்தும்"
 
 #. i18n: ectx: label, entry (SplitDragHandleSize), group (SplitView)
-#: settings/konsole.kcfg:114
+#: settings/konsole.kcfg:119
 #, kde-format
 msgid "Control the size of the handle between panels"
 msgstr "பலகைகளுக்கிடையேயான பிடிப்பியின் அளவை கட்டுப்படுத்தும்"
 
 #. i18n: ectx: label, entry (TabBarPosition), group (TabBar)
-#: settings/konsole.kcfg:134
+#: settings/konsole.kcfg:139
 #, kde-format
 msgid "Control the position of the tab bar"
 msgstr "கீற்றுப்பட்டையின் இருப்பிடத்தை கட்டுப்படுத்தும்"
 
 #. i18n: ectx: label, entry (TabBarStyleSheet), group (TabBar)
-#: settings/konsole.kcfg:144
+#: settings/konsole.kcfg:149
 #, kde-format
 msgid "Control the visual style of the tab bar"
 msgstr "கீற்றுப்பட்டையின் தோற்றத்தை கட்டுப்படுத்தும்"
 
 #. i18n: ectx: label, entry (TabBarUseUserStyleSheet), group (TabBar)
-#: settings/konsole.kcfg:148
+#: settings/konsole.kcfg:153
 #, kde-format
 msgid "Use a user-defined .css file for the tab bar"
 msgstr "பயனர் குறிப்பிடும் .css கோப்பைக் கீற்றுப்பட்டைக்குப் பயன்படுத்து"
 
 #. i18n: ectx: label, entry (TabBarUserStyleSheetFile), group (TabBar)
-#: settings/konsole.kcfg:152
+#: settings/konsole.kcfg:157
 #, kde-format
 msgid "The .css file to use for the tab bar style"
 msgstr "கீற்றுப்பட்டையின் தோற்றத்திட்டத்திற்கு பயன்படுத்த வேண்டிய .css கோப்பு"
 
 #. i18n: ectx: label, entry (CloseTabOnMiddleMouseButton), group (TabBar)
-#: settings/konsole.kcfg:156
+#: settings/konsole.kcfg:161
 #, kde-format
 msgid "Allow middle-clicking on open tabs to close them"
 msgstr "கீற்றுகளின் மீது நடு-கிளிக் செய்தால் அவற்றை மூடு"
 
 #. i18n: ectx: label, entry (NewTabButton), group (TabBar)
-#: settings/konsole.kcfg:160
+#: settings/konsole.kcfg:165
 #, kde-format
 msgid "Control the visibility of 'New Tab' button on the tab bar"
 msgstr "கீற்றுப்பட்டையில் 'புதிய கீற்று' பட்டன் காட்டப்படுவதை கட்டுப்படுத்தும்"
 
 #. i18n: ectx: label, entry (SearchTabsButton), group (TabBar)
-#: settings/konsole.kcfg:164
+#: settings/konsole.kcfg:169
 #, kde-format
 msgid "Control the visibility of 'Search Tabs' button on the tab bar"
 msgstr "கீற்றுப்பட்டையில் 'கீற்றுகளை கண்டுபிடி' பட்டன் காட்டப்படுவதை கட்டுப்படுத்தும்"
 
 #. i18n: ectx: label, entry (CloseTabButton), group (TabBar)
-#: settings/konsole.kcfg:172
+#: settings/konsole.kcfg:177
 #, kde-format
 msgid "Control where the \"Close tab\" button will be displayed"
 msgstr "கீற்றுகளை மூடும் பட்டன் காட்டப்படும் இடத்தை கட்டுப்படுத்தும்"
 
 #. i18n: ectx: label, entry (NewTabBehavior), group (TabBar)
-#: settings/konsole.kcfg:181
+#: settings/konsole.kcfg:186
 #, kde-format
 msgid "Control where to put the new tab"
 msgstr "புதிய கீற்றுகள் சேர்க்கப்படும் இடத்தை கட்டுப்படுத்தும்"
 
 #. i18n: ectx: label, entry (ExpandTabWidth), group (TabBar)
-#: settings/konsole.kcfg:189
+#: settings/konsole.kcfg:194
 #, kde-format
 msgid "Expand the tab widths"
 msgstr "கீற்றுகளை அகலப்படுத்து"
 
 #. i18n: ectx: label, entry (scrollbackUseSystemLocation), group (FileLocation)
-#: settings/konsole.kcfg:205
+#: settings/konsole.kcfg:210
 #, kde-format
 msgid "For scrollback files, use system-wide folder location"
 msgstr "முந்தைய உரையை சேமிப்பதற்கு, கணினி முழுவதற்குமான இடத்தை பயன்படுத்து"
 
 #. i18n: ectx: label, entry (scrollbackUseCacheLocation), group (FileLocation)
-#: settings/konsole.kcfg:209
+#: settings/konsole.kcfg:214
 #, kde-format
 msgid "For scrollback files, use user's specific folder location"
 msgstr "முந்தைய உரையை சேமிப்பதற்கு, இப்பயனருக்கான தனிப்பட்ட இடத்தை பயன்படுத்து"
 
 #. i18n: ectx: label, entry (scrollbackUseSpecifiedLocation), group (FileLocation)
-#: settings/konsole.kcfg:213
+#: settings/konsole.kcfg:218
 #, kde-format
 msgid "For scrollback files, use specified folder location"
 msgstr "முந்தைய உரையை சேமிப்பதற்கு, வேறு இடத்தை பயன்படுத்து"
 
 #. i18n: ectx: label, entry (scrollbackUseSpecifiedLocationDirectory), group (FileLocation)
-#: settings/konsole.kcfg:217
+#: settings/konsole.kcfg:222
 #, kde-format
 msgid "For scrollback files, use this folder"
 msgstr "முந்தைய உரையை சேமிப்பதற்கு, இந்த அடைவை பயன்படுத்து"
@@ -3562,116 +3575,128 @@ msgstr "வலதிலுள்ள முனையத்தை குவிய�
 #: ViewManager.cpp:282
 #, kde-format
 msgctxt "@action Shortcut entry"
+msgid "Focus Next Terminal"
+msgstr "அடுத்த முனையத்தைக் குவியப்படுத்து"
+
+#: ViewManager.cpp:288
+#, kde-format
+msgctxt "@action Shortcut entry"
+msgid "Focus Previous Terminal"
+msgstr "முந்தைய முனையத்தைக் குவியப்படுத்து"
+
+#: ViewManager.cpp:294
+#, kde-format
+msgctxt "@action Shortcut entry"
 msgid "Switch to Last Tab"
 msgstr "கடைசி கீற்றுக்கு தாவு"
 
-#: ViewManager.cpp:287
+#: ViewManager.cpp:299
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Last Used Tabs"
 msgstr "கடைசியாக பயன்படுத்திய கீற்றுகள்"
 
-#: ViewManager.cpp:292
+#: ViewManager.cpp:304
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Toggle Between Two Tabs"
 msgstr "இரண்டு கீற்றுகளுக்கிடையே தாவு"
 
-#: ViewManager.cpp:297
+#: ViewManager.cpp:309
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Last Used Tabs (Reverse)"
 msgstr "கடைசியாக பயன்படுத்திய கீற்றுகள் (தற்போதையதை நோக்கி)"
 
-#: ViewManager.cpp:302
+#: ViewManager.cpp:314
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Toggle maximize current view"
 msgstr "தற்போதைய காட்சிப்பகுதியின் அதிகபட்சப்பெரிதாக்கல் நிலையை மாற்று"
 
-#: ViewManager.cpp:303
+#: ViewManager.cpp:315
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Toggle maximize current view"
 msgstr "தற்போதைய காட்சிப்பகுதியின் அதிகபட்சப்பெரிதாக்கல் நிலையை மாற்று"
 
-#: ViewManager.cpp:311
+#: ViewManager.cpp:323
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Toggle zoom-maximize current view"
 msgstr "தற்போதைய காட்சிப்பகுதியின் பெரிதாக்கல்-அதிகபட்சப்பெரிதாக்கல் நிலையை மாற்று"
 
-#: ViewManager.cpp:312
+#: ViewManager.cpp:324
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Toggle zoom-maximize current view"
 msgstr "தற்போதைய காட்சிப்பகுதியின் பெரிதாக்கல்-அதிகபட்சப்பெரிதாக்கல் நிலையை மாற்று"
 
-#: ViewManager.cpp:320
+#: ViewManager.cpp:332
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Move tab to the right"
 msgstr "கீற்றை வலது பக்கமாக நகர்த்து"
 
-#: ViewManager.cpp:327
+#: ViewManager.cpp:339
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Move tab to the left"
 msgstr "கீற்றை இடது பக்கமாக நகர்த்து"
 
-#: ViewManager.cpp:334
+#: ViewManager.cpp:346
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Setup semantic integration (bash)"
 msgstr "பொருளறி அம்சங்களை அமை (bash)"
 
-#: ViewManager.cpp:340
+#: ViewManager.cpp:352
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Toggle semantic hints display"
 msgstr "பொருளறி கருவித்துப்புகளை நிலைமாற்று"
 
-#: ViewManager.cpp:346
+#: ViewManager.cpp:358
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Toggle line numbers display"
 msgstr "வரியெண்கள் காட்டப்படுவதை நிலைமாற்று"
 
-#: ViewManager.cpp:353
+#: ViewManager.cpp:365
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Equal size to all views"
 msgstr "அனைத்து காட்சிப்பகுதிகளையும் ஒரே அளவாக்கு"
 
-#: ViewManager.cpp:363
+#: ViewManager.cpp:375
 #, kde-format
 msgctxt "@action Shortcut entry"
 msgid "Switch to Tab %1"
 msgstr "%1-ஆம் கீற்றுக்கு தாவு"
 
-#: ViewManager.cpp:576
+#: ViewManager.cpp:598
 #, kde-format
 msgid "Semantic hints "
 msgstr "பொருளறித் துப்புகள் "
 
-#: ViewManager.cpp:592
+#: ViewManager.cpp:614
 #, kde-format
 msgid "Line numbers "
 msgstr "வரியேண்கள்"
 
-#: ViewManager.cpp:1180
+#: ViewManager.cpp:1202
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Tab Layout"
 msgstr "கீற்றுகளின் தளவமைப்பை சேமித்தல்"
 
-#: ViewManager.cpp:1182 ViewManager.cpp:1303
+#: ViewManager.cpp:1204 ViewManager.cpp:1325
 #, kde-format
 msgctxt "@item:inlistbox"
 msgid "Konsole View Layout (*.json)"
 msgstr "கான்சோல் காட்சிப்பகுதி தளவமைப்பு (*.json)"
 
-#: ViewManager.cpp:1198
+#: ViewManager.cpp:1220
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -3681,7 +3706,7 @@ msgstr ""
 "தளவமைப்பை சேமிப்பதில் சிக்கல் ஏற்பட்டது.\n"
 "%1"
 
-#: ViewManager.cpp:1290
+#: ViewManager.cpp:1312
 #, kde-format
 msgctxt "@label:textbox"
 msgid ""
@@ -3691,7 +3716,7 @@ msgstr ""
 "தளவமைப்பை ஏற்றுவதில் சிக்கல் ஏற்பட்டது.\n"
 "%1"
 
-#: ViewManager.cpp:1301
+#: ViewManager.cpp:1323
 #, kde-format
 msgctxt "@title:window"
 msgid "Load Tab Layout"
